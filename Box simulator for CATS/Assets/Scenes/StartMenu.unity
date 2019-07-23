@@ -227,7 +227,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2cfb29f7e462c6d42bc0130cf472152a, type: 2}
   - {fileID: 11400000, guid: dfb78e2925ced3348bbd8c75484b10f4, type: 2}
   _achievementDisplayList: []
-  achievementPrefab: {fileID: 3953313223599821070, guid: dadc2919f785d24449c6c57f764a57e6,
+  achievementPrefab: {fileID: 2428778118394252283, guid: 13b31329c82e64245aaac37c8da945a4,
     type: 3}
   achievementPanel: {fileID: 1774420632}
   testButton: {fileID: 1611888378}
@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000014428385}
+  m_AnchoredPosition: {x: 0, y: -0.0000028630916}
   m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1774420634
@@ -613,8 +613,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 300, y: 250}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 300, y: 275}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &1774420635

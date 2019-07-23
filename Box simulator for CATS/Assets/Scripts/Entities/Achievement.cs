@@ -19,8 +19,8 @@ public class Achievement : ScriptableObject
         set => _currentValue = value;
     }
 
-    [SerializeField] private int _reward;
-    public int Reward => _reward;
+    [SerializeField] private Reward[] _rewards;
+    public Reward[] Rewards => _rewards;
 
     [SerializeField] private bool _isClaimed;
     public bool IsClaimed

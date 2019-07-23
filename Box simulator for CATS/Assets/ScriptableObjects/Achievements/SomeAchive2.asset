@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f1f6f72f8ee454ca2b49e7b8c940ab, type: 3}
-  m_Name: SomeAchive
+  m_Name: SomeAchive2
   m_EditorClassIdentifier: 
-  _title: Achiev1
-  _id: 0
-  _targetValue: 10
-  _currentValue: 0
-  _reward: 5
+  _title: Achiev2
+  _id: 1
+  _targetValue: 4
+  _currentValue: 2
+  _rewards:
+  - _gameResource: {fileID: 11400000, guid: ec7d2b1e71d874d47a30d2bd3f1730bd, type: 2}
+    _value: 123
   _isClaimed: 0

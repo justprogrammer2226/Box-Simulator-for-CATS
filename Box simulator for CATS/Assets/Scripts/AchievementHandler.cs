@@ -39,6 +39,11 @@ public class AchievementHandler : MonoBehaviour
             {
                 throw new Exception("ID, the current value and the target value can not be negative.");
             }
+
+            if (achievement.Rewards.Select(reward => reward.GameResource).Distinct().Count() != achievement.Rewards.Count())
+            {
+                throw new Exception("Rewards should be of different types.");
+            }
         }
     }
 
