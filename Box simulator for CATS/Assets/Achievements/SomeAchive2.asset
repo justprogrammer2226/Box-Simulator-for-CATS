@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f1f6f72f8ee454ca2b49e7b8c940ab, type: 3}
   m_Name: SomeAchive2
   m_EditorClassIdentifier: 
-  title: Hop achivochka 2
-  id: 1
-  targetValue: 100
-  currentValue: 67
-  reward: 7
-  isClaimed: 0
+  _title: Achiev2
+  _id: 1
+  _targetValue: 4
+  _currentValue: 0
+  _reward: 4
+  _isClaimed: 0

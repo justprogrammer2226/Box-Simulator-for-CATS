@@ -3,10 +3,29 @@
 [CreateAssetMenu(fileName = "New Achievement", menuName = "Achievement")]
 public class Achievement : ScriptableObject
 {
-    public string title;
-    public int id;
-    public int targetValue;
-    public int currentValue;
-    public int reward;
-    public bool isClaimed;
+    [SerializeField] private string _title;
+    public string Title => _title;
+
+    [SerializeField] private int _id;
+    public int Id => _id;
+
+    [SerializeField] private int _targetValue;
+    public int TargetValue => _targetValue;
+
+    [SerializeField] private int _currentValue;
+    public int CurrentValue
+    {
+        get => _currentValue;
+        set => _currentValue = value;
+    }
+
+    [SerializeField] private int _reward;
+    public int Reward => _reward;
+
+    [SerializeField] private bool _isClaimed;
+    public bool IsClaimed
+    {
+        get => _isClaimed;
+        set => _isClaimed = value;
+    }
 }

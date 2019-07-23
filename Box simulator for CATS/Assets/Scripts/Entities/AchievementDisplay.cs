@@ -21,15 +21,15 @@ public class AchievementDisplay : MonoBehaviour
 
     public void UpdateUI()
     {
-        title.text = achievement.title;
-        reward.text = achievement.reward.ToString();
-        progress.text = $"{achievement.currentValue}/{achievement.targetValue}";
-        slider.value = (float) achievement.currentValue / achievement.targetValue;
+        title.text = achievement.Title;
+        reward.text = achievement.Reward.ToString();
+        progress.text = $"{achievement.CurrentValue}/{achievement.TargetValue}";
+        slider.value = (float) achievement.CurrentValue / achievement.TargetValue;
         rewardButtonText.text = "Get Reward";
 
-        if (achievement.currentValue == achievement.targetValue)
+        if (achievement.CurrentValue == achievement.TargetValue)
         {
-            if(achievement.isClaimed)
+            if(achievement.IsClaimed)
             {
                 rewardButtonText.text = "Claimed";
                 rewardButton.interactable = false;
@@ -43,11 +43,11 @@ public class AchievementDisplay : MonoBehaviour
 
     private void OnRewardButtonClick()
     {
-        if(!achievement.isClaimed)
+        if(!achievement.IsClaimed)
         {
             rewardButtonText.text = "Claimed";
             rewardButton.interactable = false;
-            achievement.isClaimed = true;
+            achievement.IsClaimed = true;
         }
     }
 }

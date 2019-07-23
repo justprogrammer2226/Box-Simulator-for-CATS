@@ -25,17 +25,17 @@ public class AchievementHandler : MonoBehaviour
 
         foreach (Achievement achievement in achievementList)
         {
-            if(achievement.currentValue > achievement.targetValue)
+            if(achievement.CurrentValue > achievement.TargetValue)
             {
                 throw new Exception("The current value cannot be greater than the target value.");
             }
 
-            if (achievement.currentValue != achievement.targetValue && achievement.isClaimed)
+            if (achievement.CurrentValue != achievement.TargetValue && achievement.IsClaimed)
             {
                 throw new Exception("The achievement is marked as claimed, but the current value and the target value are not equal.");
             }
 
-            if (achievement.id < 0 || achievement.currentValue < 0 || achievement.targetValue < 0)
+            if (achievement.Id < 0 || achievement.CurrentValue < 0 || achievement.TargetValue < 0)
             {
                 throw new Exception("ID, the current value and the target value can not be negative.");
             }
@@ -60,15 +60,15 @@ public class AchievementHandler : MonoBehaviour
     {
         if (id < 0 || id > achievementList.Count) return;
 
-        if (achievementList[id].targetValue == achievementList[id].currentValue) return;
+        if (achievementList[id].TargetValue == achievementList[id].CurrentValue) return;
 
         if (value <= 0) return;
 
-        achievementList[id].currentValue += value;
+        achievementList[id].CurrentValue += value;
 
-        if (achievementList[id].currentValue >= achievementList[id].targetValue)
+        if (achievementList[id].CurrentValue >= achievementList[id].TargetValue)
         {
-            achievementList[id].currentValue = achievementList[id].targetValue;
+            achievementList[id].CurrentValue = achievementList[id].TargetValue;
             CompleteAchievement(id);
         }
 
