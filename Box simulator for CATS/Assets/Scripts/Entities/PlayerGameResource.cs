@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-[System.Serializable]
-public class Reward
+[Serializable]
+public class PlayerGameResource
 {
     [SerializeField] private GameResource _gameResource;
     public GameResource GameResource => _gameResource;

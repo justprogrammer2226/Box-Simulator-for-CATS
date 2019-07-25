@@ -74,14 +74,8 @@ public class AchievementHandler : MonoBehaviour
         if (achievementList[id].CurrentValue >= achievementList[id].TargetValue)
         {
             achievementList[id].CurrentValue = achievementList[id].TargetValue;
-            CompleteAchievement(id);
         }
 
         _achievementDisplayList[id].UpdateUI();
-    }
-
-    private void CompleteAchievement(int id)
-    {
-        Debug.Log("Ачивка кароче палучена типа, бонжурно, возьмите плез награждение своё сударь");
     }
 }

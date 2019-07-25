@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-class RewardDisplay : MonoBehaviour
+class PlayerGameResourceDisplay : MonoBehaviour
 {
-    public Reward reward;
+    public PlayerGameResource playerGameResource;
 
     public TextMeshProUGUI value;
     public Image image;
@@ -16,7 +16,7 @@ class RewardDisplay : MonoBehaviour
 
     public void UpdateUI()
     {
-        value.text = reward.Value.ToString();
-        image.sprite = reward.GameResource.Sprite;
+        value.text = playerGameResource.Value.ToString();
+        image.sprite = playerGameResource.GameResource.Sprite;
     }
 }

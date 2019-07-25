@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,12 +54,14 @@ public class AchievementDisplay : MonoBehaviour
             DestroyImmediate(child.gameObject);
         }
 
-        foreach (Reward reward in achievement.Rewards)
+        foreach (PlayerGameResource reward in achievement.Rewards)
         {
-            RewardDisplay newRewardDisplay = Instantiate(rewardPrefab, rewardsPanel.transform).GetComponent<RewardDisplay>();
-            newRewardDisplay.reward = reward;
+            PlayerGameResourceDisplay newRewardDisplay = Instantiate(rewardPrefab, rewardsPanel.transform).GetComponent<PlayerGameResourceDisplay>();
+            newRewardDisplay.playerGameResource = reward;
             newRewardDisplay.UpdateUI();
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetChild(0).GetComponent<RectTransform>());
     }
 
     private void OnRewardButtonClick()
@@ -66,5 +69,10 @@ public class AchievementDisplay : MonoBehaviour
         rewardButtonText.text = "Claimed";
         rewardButton.interactable = false;
         achievement.IsClaimed = true;
+
+        foreach(var reward in achievement.Rewards)
+        {
+            Player.instance.AdjustGameResource(reward.GameResource, reward.Value);
+        }
     }
 }

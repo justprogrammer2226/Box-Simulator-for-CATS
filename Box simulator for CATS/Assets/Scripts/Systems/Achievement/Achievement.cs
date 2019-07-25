@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Achievement", menuName = "Achievement")]
 public class Achievement : ScriptableObject
@@ -19,8 +20,8 @@ public class Achievement : ScriptableObject
         set => _currentValue = value;
     }
 
-    [SerializeField] private Reward[] _rewards;
-    public Reward[] Rewards => _rewards;
+    [SerializeField] private PlayerGameResource[] _rewards;
+    public PlayerGameResource[] Rewards => _rewards;
 
     [SerializeField] private bool _isClaimed;
     public bool IsClaimed
