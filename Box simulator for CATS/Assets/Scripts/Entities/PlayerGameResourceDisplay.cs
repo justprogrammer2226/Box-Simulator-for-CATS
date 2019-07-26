@@ -11,7 +11,13 @@ class PlayerGameResourceDisplay : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
+        InitUpdateUI();
+    }
+
+    public void InitUpdateUI()
+    {
+        value.GetComponent<SmoothChangingOfNumber>().SetInitValues((ulong)playerGameResource.Value, (ulong)playerGameResource.Value);
+        image.sprite = playerGameResource.GameResource.Sprite;
     }
 
     public void UpdateUI()

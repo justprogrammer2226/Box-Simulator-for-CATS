@@ -24,7 +24,7 @@ class Player : MonoBehaviour
         {
             PlayerGameResourceDisplay newPlayerGameResourceDisplay = Instantiate(playerGameResourcePrefab, playerGameResourcePanel.transform).GetComponent<PlayerGameResourceDisplay>();
             newPlayerGameResourceDisplay.playerGameResource = playerGameResource;
-            newPlayerGameResourceDisplay.UpdateUI();
+            newPlayerGameResourceDisplay.InitUpdateUI();
             _playerGameResourceDisplay.Add(newPlayerGameResourceDisplay);
         }
     }
@@ -36,15 +36,6 @@ class Player : MonoBehaviour
             throw new Exception("The game resource you want to adjust was not found in the list of game player resources.");
         }
 
-        playerData.PlayerGameResources.Single(playerGameResource => playerGameResource.GameResource == gameResource).Value += value;
-        UpdateUI();
-    }
-
-    private void UpdateUI()
-    {
-        foreach(PlayerGameResourceDisplay playerGameResourceDisplay in _playerGameResourceDisplay)
-        {
-            playerGameResourceDisplay.UpdateUI();
-        }
+        _playerGameResourceDisplay.Single(playerGameResourceDisplay => playerGameResourceDisplay.playerGameResource.GameResource == gameResource).value.gameObject.GetComponent<SmoothChangingOfNumber>().TargetValue += (ulong)value;
     }
 }

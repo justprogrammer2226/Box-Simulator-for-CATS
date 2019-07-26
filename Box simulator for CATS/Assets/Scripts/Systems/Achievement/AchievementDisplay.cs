@@ -58,7 +58,7 @@ public class AchievementDisplay : MonoBehaviour
         {
             PlayerGameResourceDisplay newRewardDisplay = Instantiate(rewardPrefab, rewardsPanel.transform).GetComponent<PlayerGameResourceDisplay>();
             newRewardDisplay.playerGameResource = reward;
-            newRewardDisplay.UpdateUI();
+            newRewardDisplay.InitUpdateUI();
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetChild(0).GetComponent<RectTransform>());
