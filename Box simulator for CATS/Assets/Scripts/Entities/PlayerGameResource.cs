@@ -11,6 +11,12 @@ public class PlayerGameResource
     public int Value
     {
         get => _value;
-        set => _value = value;
+        set
+        {
+            _value = value;
+            OnValueChange?.Invoke(value);
+        }
     }
+
+    public Action<int> OnValueChange;
 }

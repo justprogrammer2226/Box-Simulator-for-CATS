@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: fd17d92dfd091f6489f49cbb0665e12b, type: 2}
-  playerGameResourcePrefab: {fileID: 3532737649859727994, guid: 79230b09fc839b74d87a8244040366e2,
+  playerGameResourcePrefab: {fileID: 4576868422716427860, guid: 79230b09fc839b74d87a8244040366e2,
     type: 3}
   playerGameResourcePanel: {fileID: 1618710048}
+  expGameResource: {fileID: 11400000, guid: a58865ef483d2064e8df97d6367cb7a3, type: 2}
   _playerGameResourceDisplay: []
 --- !u!4 &211464716
 Transform:
@@ -722,7 +723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017457522}
+  m_AnchoredPosition: {x: 0, y: -0.000017405408}
   m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1774420634

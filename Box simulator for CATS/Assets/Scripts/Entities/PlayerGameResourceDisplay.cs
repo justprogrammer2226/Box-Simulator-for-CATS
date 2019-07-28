@@ -9,17 +9,6 @@ class PlayerGameResourceDisplay : MonoBehaviour
     public TextMeshProUGUI value;
     public Image image;
 
-    private void Start()
-    {
-        InitUpdateUI();
-    }
-
-    public void InitUpdateUI()
-    {
-        value.GetComponent<SmoothChangingOfNumber>().SetInitValues((ulong)playerGameResource.Value, (ulong)playerGameResource.Value);
-        image.sprite = playerGameResource.GameResource.Sprite;
-    }
-
     public void UpdateUI()
     {
         value.text = playerGameResource.Value.ToString();
