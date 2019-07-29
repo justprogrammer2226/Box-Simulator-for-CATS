@@ -19,4 +19,4 @@ MonoBehaviour:
   _rewards:
   - _gameResource: {fileID: 11400000, guid: a58865ef483d2064e8df97d6367cb7a3, type: 2}
     _value: 50
-  _isClaimed: 0
+  _isClaimed: 1

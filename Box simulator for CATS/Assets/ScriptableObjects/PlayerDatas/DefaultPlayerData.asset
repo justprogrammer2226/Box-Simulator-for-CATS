@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerGameResources:
   - _gameResource: {fileID: 11400000, guid: a58865ef483d2064e8df97d6367cb7a3, type: 2}
-    _value: 300
+    _value: 30
   - _gameResource: {fileID: 11400000, guid: ec7d2b1e71d874d47a30d2bd3f1730bd, type: 2}
-    _value: 0
+    _value: 300
   - _gameResource: {fileID: 11400000, guid: 06137c856355528459728d154ea59e21, type: 2}
-    _value: 0
+    _value: 300
