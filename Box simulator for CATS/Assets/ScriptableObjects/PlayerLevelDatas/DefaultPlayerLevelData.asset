@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf60a5cc474a814689eab3b4a1901e2, type: 3}
   m_Name: DefaultPlayerLevelData
   m_EditorClassIdentifier: 
-  _currentPlayerLevel: 0
+  _currentPlayerLevel: 1
   _playerLevels:
   - _targetExperience: 120
     _rewards:
