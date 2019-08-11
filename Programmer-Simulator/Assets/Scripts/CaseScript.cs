@@ -4,7 +4,7 @@ public class CaseScript : MonoBehaviour
 {
     public bool openCase = false;
     public GameObject scrollPanel;
-    public BoxGenerator boxGenerator;
+    public BoxManager boxGenerator;
     public ScrollScript scrollScript;
 
     public void CaseButton(string boxName)
@@ -19,7 +19,7 @@ public class CaseScript : MonoBehaviour
         for(int i = 0; i < numberOfItems; i++)
         {
             Box box = boxGenerator.GetBoxByName(boxName);
-            PlayerItemData item = boxGenerator.GetRandomItem(box);
+            BoxItemData item = boxGenerator.GetRandomItemByBox(box);
             Instantiate(item, scrollPanel.transform);
         }
 

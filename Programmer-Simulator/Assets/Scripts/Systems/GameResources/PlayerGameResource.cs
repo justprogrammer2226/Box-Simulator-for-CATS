@@ -14,7 +14,7 @@ public class PlayerGameResource
         set
         {
             _value = value;
-            OnValueChange?.Invoke(value);
+            OnValueChange?.Invoke(_value);
         }
     }
 

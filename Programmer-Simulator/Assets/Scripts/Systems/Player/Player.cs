@@ -12,6 +12,7 @@ class Player : MonoBehaviour
     [Header("Data settings")]
     public PlayerData playerData;
     public PlayerLevelData playerLevelData;
+    public PlayerMoneyData playerMoneyData;
 
     [Header("Game resource settings")]
     public GameObject playerGameResourcePrefab;
@@ -33,6 +34,8 @@ class Player : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private List<PlayerGameResourceDisplay> _playerGameResourceDisplay;
 
+    public Action<int> OnMoneyChange;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -52,6 +55,32 @@ class Player : MonoBehaviour
         {
             throw new Exception("Current player level cannot be greater than number of player levels.");
         }
+
+        if (playerMoneyData.IncomeItems.Select(changer => changer.Name).Distinct().Count() != playerMoneyData.IncomeItems.Count())
+        {
+            throw new Exception("Income items should be of different names.");
+        }
+
+        if (playerMoneyData.ExpenseItems.Select(changer => changer.Name).Distinct().Count() != playerMoneyData.ExpenseItems.Count())
+        {
+            throw new Exception("Expense items should be of different names.");
+        }
+
+        foreach (MoneyChanger moneyChanger in playerMoneyData.IncomeItems)
+        {
+            if (moneyChanger.Value < 0)
+            {
+                throw new Exception("Value changes of value must be greater than 0.");
+            }
+        }
+
+        foreach (MoneyChanger moneyChanger in playerMoneyData.ExpenseItems)
+        {
+            if (moneyChanger.Value < 0)
+            {
+                throw new Exception("Value changes of value must be greater than 0.");
+            }
+        }
     }
 
     private void Start()
@@ -62,6 +91,7 @@ class Player : MonoBehaviour
         // We begin to follow the change in player experience.
         // To be able to change the level of the player.
         SubscribeOnChangeExperience();
+        // TODO: SubscribeOnChangeMoney();
     }
 
     private void DisplayPlayerGameResource()
@@ -76,7 +106,7 @@ class Player : MonoBehaviour
 
     private void DisplayPlayerItems()
     {
-        foreach (PlayerItemData playerItemData in playerData.PlayerItemDatas)
+        foreach (BoxItemData playerItemData in playerData.PlayerItemsData)
         {
             AddPlayerItem(playerItemData);
         }
@@ -138,10 +168,26 @@ class Player : MonoBehaviour
         UpdateUI();
     }
 
-    public void AddPlayerItem(PlayerItemData playerItemData)
+    public void AddPlayerItem(BoxItemData playerItemData)
     {
-        PlayerItemDisplay newPlayerItemDisplay = Instantiate(playerItemPrefab, playerItemPanel.transform).GetComponent<PlayerItemDisplay>();
+        BoxItemDisplay newPlayerItemDisplay = Instantiate(playerItemPrefab, playerItemPanel.transform).GetComponent<BoxItemDisplay>();
         newPlayerItemDisplay.playerItem = playerItemData;
         newPlayerItemDisplay.UpdateUI();
+    }
+
+    public void AddMoney()
+    {
+        foreach (MoneyChanger moneyChanger in playerMoneyData.IncomeItems)
+        {
+            playerMoneyData.Money += moneyChanger.Value;
+        }
+    }
+
+    public void WriteOffMoney()
+    {
+        foreach (MoneyChanger moneyChanger in playerMoneyData.ExpenseItems)
+        {
+            playerMoneyData.Money += moneyChanger.Value;
+        }
     }
 }
