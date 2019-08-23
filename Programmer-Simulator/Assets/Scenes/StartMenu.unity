@@ -230,9 +230,6 @@ MonoBehaviour:
   playerItemPrefab: {fileID: 3052894985595618602, guid: 6cb42a7906422504792edbf2f0634add,
     type: 3}
   playerItemPanel: {fileID: 1366291361}
-  expGameResource: {fileID: 11400000, guid: a58865ef483d2064e8df97d6367cb7a3, type: 2}
-  expSlider: {fileID: 371718295}
-  expProgress: {fileID: 1345391045}
   currentPlayerLevelText: {fileID: 547790057}
   _playerGameResourceDisplay: []
 --- !u!4 &211464716

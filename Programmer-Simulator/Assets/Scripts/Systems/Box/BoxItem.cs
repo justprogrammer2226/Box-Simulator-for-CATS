@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class MoneyChanger
+public class BoxItem
 {
-    [SerializeField] private string _name;
-    public string Name => _name;
+    [SerializeField] private int _id;
+    public int GameResourceId => _id;
 
     [SerializeField] private int _value;
     public int Value => _value;

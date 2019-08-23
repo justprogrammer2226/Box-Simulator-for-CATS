@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5079915379763950232}
   - component: {fileID: 3801567865496338088}
-  - component: {fileID: 1950414052112357361}
+  - component: {fileID: 49488512986668612}
   m_Layer: 5
   m_Name: PlayerItem
   m_TagString: Untagged
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3052894985595618602}
   m_CullTransparentMesh: 0
---- !u!114 &1950414052112357361
+--- !u!114 &49488512986668612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3052894985595618602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c11514ff632e0f459408784062627fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 731e150b852166d4186b95335ca5aa6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerItem: {fileID: 0}

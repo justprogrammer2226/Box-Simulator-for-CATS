@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Game Resource", menuName = "Game Resource")]
-public class GameResource : ScriptableObject
+[System.Serializable]
+public class GameResource
 {
-    [SerializeField] private Sprite _sprite;
-    public Sprite Sprite => _sprite;
+    [SerializeField] private int _id;
+    public int GameResourceId => _id;
+
+    [SerializeField] private int _value;
+    public int Value => _value;
 }

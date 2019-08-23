@@ -3,7 +3,7 @@ guid: 8824203aa79f36642bebf10764c50f4b
 TextureImporter:
   fileIDToRecycleName:
     21300000: dollar_sprite
-    21300002: gemcoint_sprite
+    21300002: gemcoin_sprite
     21300004: back_resource_sprite
     21300006: profile_sprite
   externalObjects: {}
@@ -119,7 +119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gemcoint_sprite
+      name: gemcoin_sprite
       rect:
         serializedVersion: 2
         x: 203

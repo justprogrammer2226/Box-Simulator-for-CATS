@@ -12,13 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1fa61132f3ca949897245fb45e29f7, type: 3}
   m_Name: DefaultPlayerData
   m_EditorClassIdentifier: 
-  _playerGameResources:
-  - _gameResource: {fileID: 11400000, guid: a58865ef483d2064e8df97d6367cb7a3, type: 2}
-    _value: 10
-  - _gameResource: {fileID: 11400000, guid: ec7d2b1e71d874d47a30d2bd3f1730bd, type: 2}
-    _value: 750
-  - _gameResource: {fileID: 11400000, guid: 06137c856355528459728d154ea59e21, type: 2}
-    _value: 450
-  _playerItemsData:
-  - {fileID: 11400000, guid: 230453ccd2d4ecd4e956810bfa215271, type: 2}
-  - {fileID: 11400000, guid: 20e3342455fdfdf479221d14e2fdf761, type: 2}
+  _playerGameResources: []
+  _playerBoxItems: []
