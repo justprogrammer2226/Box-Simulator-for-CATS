@@ -5,7 +5,6 @@ class RewardManager : MonoBehaviour
 {
     public BoxManager boxManager;
     public Player player;
-    public GameResourceManager gameResourceManager;
 
     public int minNumberOfItems;
     public int maxNumberOfItems;
@@ -37,7 +36,7 @@ class RewardManager : MonoBehaviour
     {
         foreach (BoxItem boxItem in boxItems)
         {
-            Sprite sprite = gameResourceManager.GetSpriteByIndex(boxItem.GameResourceId);
+            Sprite sprite = GameResourceManager.GetSpriteByIndex(boxItem.GameResourceId);
             Debug.Log($"Got {sprite.name} {boxItem.Value}");
         }
     }

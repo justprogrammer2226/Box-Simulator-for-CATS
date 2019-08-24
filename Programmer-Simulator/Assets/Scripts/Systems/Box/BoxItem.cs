@@ -7,5 +7,9 @@ public class BoxItem
     public int GameResourceId => _id;
 
     [SerializeField] private int _value;
-    public int Value => _value;
+    public int Value
+    {
+        get => _value;
+        set => _value = value;
+    }
 }

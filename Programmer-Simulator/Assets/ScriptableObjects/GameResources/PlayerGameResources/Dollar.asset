@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1fa61132f3ca949897245fb45e29f7, type: 3}
-  m_Name: DefaultPlayerData
+  m_Script: {fileID: 11500000, guid: ff244590bc3fec44e9e5d7426773183a, type: 3}
+  m_Name: Dollar
   m_EditorClassIdentifier: 
-  _gameResources:
-  - _id: 0
-    _value: 100
-  - _id: 1
-    _value: 200
-  _boxItems: []
+  _id: 0
+  _sprite: {fileID: 21300000, guid: 8824203aa79f36642bebf10764c50f4b, type: 3}
+  _type: 0
+  _targetValue: 0

@@ -4,12 +4,14 @@ using UnityEngine.UI;
 
 class GameResourceDisplay : MonoBehaviour
 {
-    public GameResourceData gameResource;
+    public GameResource gameResource;
 
-    public Image image;
+    [SerializeField] private Image image;
+    [SerializeField] private TextMeshProUGUI text;
 
     public void UpdateUI()
     {
-        image.sprite = gameResource.Sprite;
+        image.sprite = GameResourceManager.GetSpriteByIndex(gameResource.GameResourceId);
+        text.text = gameResource.Value.ToString();
     }
 }
