@@ -4,8 +4,8 @@ using UnityEngine;
 [Serializable]
 public class GameResource
 {
-    [SerializeField] private int _id;
-    public int Id => _id;
+    [SerializeField] private GameResourceData _gameResourceData;
+    public GameResourceData GameResourceData => _gameResourceData;
 
     [SerializeField] private int _value;
     public int Value
@@ -19,4 +19,10 @@ public class GameResource
     }
 
     public event Action<int> OnValueChanged;
+
+    public GameResource(GameResource gameResource)
+    {
+        _gameResourceData = gameResource._gameResourceData;
+        _value = gameResource._value;
+    }
 }

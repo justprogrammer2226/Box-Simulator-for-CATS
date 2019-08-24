@@ -35,9 +35,9 @@ class Player : MonoBehaviour
 
         foreach (PlayerLevel playerLevel in playerLevelData.PlayerLevels)
         {
-            if (playerLevel.Rewards.Select(reward => reward.Id).Distinct().Count() != playerLevel.Rewards.Count())
+            if (playerLevel.Rewards.Select(reward => reward.GameResourceData).Distinct().Count() != playerLevel.Rewards.Count())
             {
-                throw new Exception("Rewards should have of different id.");
+                throw new Exception("Rewards should have of different game resource.");
             }
         }
 
@@ -53,7 +53,7 @@ class Player : MonoBehaviour
 
         foreach (GameResource gameResource in playerData.GameResources)
         {
-            if(GameResourceManager.GetTypeByIndex(gameResource.Id) != GameResourceType.Player)
+            if(gameResource.GameResourceData.Type != GameResourceType.Player)
             {
                 throw new Exception("The player’s game resources must refer to game resources with a type for the player.");
             }
@@ -61,18 +61,18 @@ class Player : MonoBehaviour
 
         foreach (GameResource boxItem in playerData.BoxItems)
         {
-            if (GameResourceManager.GetTypeByIndex(boxItem.Id) != GameResourceType.Box)
+            if (boxItem.GameResourceData.Type != GameResourceType.Box)
             {
                 throw new Exception("The player’s box items must refer to game resources with a type for the box.");
             }
         }
 
-        if (playerData.GameResources.Select(_ => _.Id).Distinct().Count() != playerData.GameResources.Count())
+        if (playerData.GameResources.Select(_ => _.GameResourceData).Distinct().Count() != playerData.GameResources.Count())
         {
             throw new Exception("Player game resources should have of different id.");
         }
 
-        if (playerData.GameResources.Select(_ => _.Id).Distinct().Count() != playerData.GameResources.Count())
+        if (playerData.GameResources.Select(_ => _.GameResourceData).Distinct().Count() != playerData.GameResources.Count())
         {
             throw new Exception("Player box items should have of different id.");
         }
@@ -110,39 +110,43 @@ class Player : MonoBehaviour
 
     public void AdjustPlayerGameResource(GameResource gameResource)
     {
-        if (GameResourceManager.GetTypeByIndex(gameResource.Id) == GameResourceType.Player)
+        if (gameResource.GameResourceData.Type == GameResourceType.Player)
         {
-            GameResource playerGameResource = playerData.GameResources.Where(_ => _.Id == gameResource.Id).SingleOrDefault();
+            GameResource playerGameResource = playerData.GameResources.Where(_ => _.GameResourceData == gameResource.GameResourceData).SingleOrDefault();
             // Why are we throwing an exception here, and not just adding a game resource, as we do with box elements?
             // Because the player’s game resources are defined from the very beginning and cannot be changed.
             if (playerGameResource == null)
             {
-                throw new Exception($"Game resource with id {gameResource.Id} not found");
+                throw new Exception($"Game resource not found");
             }
             playerGameResource.Value += gameResource.Value;
         }
         else
         {
-            throw new Exception($"There was an attempt to add a game resource, but the game resource with id {gameResource.Id} is for the box.");
+            throw new Exception($"There was an attempt to add a game resource, but the game resource is for the box.");
         }
     }
 
     public void AdjustPlayerBoxItem(GameResource boxItem)
     {
-        if (GameResourceManager.GetTypeByIndex(boxItem.Id) == GameResourceType.Box)
+        if (boxItem.GameResourceData.Type == GameResourceType.Box)
         {
-            GameResource playerBoxItem = playerData.BoxItems.Where(_ => _.Id == boxItem.Id).SingleOrDefault();
+            GameResource playerBoxItem = playerData.BoxItems.Where(_ => _.GameResourceData == boxItem.GameResourceData).SingleOrDefault();
 
             if (playerBoxItem == null)
             {
-                playerData.BoxItems.Add(boxItem);
+                // We create a new object that will not be associated with the object in the box.
+                // If we add an element from the box directly, then the objects in the box and the player will be equal,
+                // and because of this, the value will be doubled.
+                GameResource newBoxItem = new GameResource(boxItem);
+                playerData.BoxItems.Add(newBoxItem);
                 GameResourceDisplay gameResourceDisplay = Instantiate(playerBoxItemPrefab, playerBoxItemPanel.transform).GetComponent<GameResourceDisplay>();
-                gameResourceDisplay.GameResource = boxItem;
+                gameResourceDisplay.GameResource = newBoxItem;
             }
             else
             {
                 playerBoxItem.Value += boxItem.Value;
-                int targetValue = GameResourceManager.GetTargetByIndex(playerBoxItem.Id);
+                int targetValue = boxItem.GameResourceData.TargetValue;
                 if (targetValue < playerBoxItem.Value)
                 {
                     playerBoxItem.Value = targetValue;
@@ -151,7 +155,7 @@ class Player : MonoBehaviour
         }
         else
         {
-            throw new Exception($"There was an attempt to add a box element, but the game resource with id {boxItem.Id} is for the player.");
+            throw new Exception($"There was an attempt to add a box element, but the game resource is for the player.");
         }
     }
 }

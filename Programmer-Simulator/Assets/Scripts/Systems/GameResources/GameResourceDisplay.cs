@@ -10,6 +10,10 @@ class GameResourceDisplay : MonoBehaviour
         get => _gameResource;
         set
         {
+            if(_gameResource != null && value == null)
+            {
+                _gameResource.OnValueChanged -= (_) => UpdateUI();
+            }
             _gameResource = value;
             UpdateUI();
             _gameResource.OnValueChanged += (_) => UpdateUI();
@@ -21,13 +25,13 @@ class GameResourceDisplay : MonoBehaviour
 
     private void UpdateUI()
     {
-        _image.sprite = GameResourceManager.GetSpriteByIndex(GameResource.Id);
+        _image.sprite = GameResource.GameResourceData.Sprite;
 
-        GameResourceType type = GameResourceManager.GetTypeByIndex(GameResource.Id);
+        GameResourceType type = GameResource.GameResourceData.Type;
 
         if (type == GameResourceType.Box)
         {
-            _text.text = $"{GameResource.Value}/{GameResourceManager.GetTargetByIndex(GameResource.Id)}";
+            _text.text = $"{GameResource.Value}/{GameResource.GameResourceData.TargetValue}";
         }
         else if (type == GameResourceType.Player)
         {

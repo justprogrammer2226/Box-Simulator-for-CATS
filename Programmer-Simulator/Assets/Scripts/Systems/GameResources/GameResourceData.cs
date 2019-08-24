@@ -3,9 +3,6 @@
 [CreateAssetMenu(fileName = "New Game Resource Data", menuName = "Game Resource Data")]
 public class GameResourceData : ScriptableObject
 {
-    [SerializeField] private int _id;
-    public int Id => _id;
-
     [SerializeField] private Sprite _sprite;
     public Sprite Sprite => _sprite;
 

@@ -36,17 +36,17 @@ class RewardManager : MonoBehaviour
     {
         foreach (GameResource boxItem in boxItems)
         {
-            GameResourceType type = GameResourceManager.GetTypeByIndex(boxItem.Id);
+            GameResourceType type = boxItem.GameResourceData.Type;
 
             if (type == GameResourceType.Box)
             {
                 player.AdjustPlayerBoxItem(boxItem);
-                Debug.Log($"Got {boxItem.Value} box item with sprite name {GameResourceManager.GetSpriteByIndex(boxItem.Id)}");
+                Debug.Log($"Got {boxItem.Value} box item with sprite name {boxItem.GameResourceData.Sprite.name}");
             }
             else if (type == GameResourceType.Player)
             {
                 player.AdjustPlayerGameResource(boxItem);
-                Debug.Log($"Got {boxItem.Value} game resource with sprite name {GameResourceManager.GetSpriteByIndex(boxItem.Id)}");
+                Debug.Log($"Got {boxItem.Value} game resource with sprite name {boxItem.GameResourceData.Sprite.name}");
             }
         }
     }
