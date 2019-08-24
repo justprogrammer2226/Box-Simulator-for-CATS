@@ -62,7 +62,7 @@ class Player : MonoBehaviour
             }
         }
 
-        foreach (BoxItem boxItem in playerData.BoxItems)
+        foreach (GameResource boxItem in playerData.BoxItems)
         {
             if (GameResourceManager.GetTypeByIndex(boxItem.GameResourceId) != GameResourceType.Box)
             {
@@ -93,8 +93,7 @@ class Player : MonoBehaviour
         foreach(GameResource gameResource in playerData.GameResources)
         {
             GameResourceDisplay gameResourceDisplay = Instantiate(playerGameResourcePrefab, playerGameResourcePanel.transform).GetComponent<GameResourceDisplay>();
-            gameResourceDisplay.gameResource = gameResource;
-            gameResourceDisplay.UpdateUI();
+            gameResourceDisplay.GameResource = gameResource;
             _playerGameResourceDisplay.Add(gameResourceDisplay);
         }
     }
@@ -106,11 +105,6 @@ class Player : MonoBehaviour
 
     private void UpdateUI()
     {
-        foreach (GameResourceDisplay gameResourceDisplay in _playerGameResourceDisplay)
-        {
-            gameResourceDisplay.UpdateUI();
-        }
-
         currentPlayerLevelText.text = (playerLevelData.CurrentPlayerLevel + 1).ToString();
     }
 
@@ -133,11 +127,11 @@ class Player : MonoBehaviour
         }
     }
 
-    public void AdjustPlayerBoxItem(BoxItem boxItem)
+    public void AdjustPlayerBoxItem(GameResource boxItem)
     {
         if (GameResourceManager.GetTypeByIndex(boxItem.GameResourceId) == GameResourceType.Box)
         {
-            BoxItem playerBoxItem = playerData.BoxItems.Where(_ => _.GameResourceId == boxItem.GameResourceId).SingleOrDefault();
+            GameResource playerBoxItem = playerData.BoxItems.Where(_ => _.GameResourceId == boxItem.GameResourceId).SingleOrDefault();
 
             if (playerBoxItem == null)
             {

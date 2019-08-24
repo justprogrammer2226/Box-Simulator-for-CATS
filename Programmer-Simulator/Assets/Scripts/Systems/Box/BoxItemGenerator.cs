@@ -8,7 +8,7 @@ public static class BoxItemGenerator
 {
     /// <remark> For the script to work correctly, the box should have at least one items group and in each group at least one item.
     /// Otherwise, the method will return null. </remark>
-    public static BoxItem GetRandomItemByBox(Box box)
+    public static GameResource GetRandomItemByBox(Box box)
     {
         float totalChanceSum = box.itemsGroups.Select(group => group.chance).Sum();
 

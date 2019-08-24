@@ -22,7 +22,7 @@ class RewardManager : MonoBehaviour
         int numberOfItems = Random.Range(minNumberOfItems, maxNumberOfItems);
         Box box = boxManager.GetBoxByIndex(index);
 
-        List<BoxItem> boxItems = new List<BoxItem>();
+        List<GameResource> boxItems = new List<GameResource>();
 
         for (int i = 0; i < numberOfItems; i++)
         {
@@ -32,12 +32,19 @@ class RewardManager : MonoBehaviour
         RewardPlayer(boxItems);
     }
 
-    public void RewardPlayer(List<BoxItem> boxItems)
+    public void RewardPlayer(List<GameResource> boxItems)
     {
-        foreach (BoxItem boxItem in boxItems)
+        foreach (GameResource boxItem in boxItems)
         {
-            Sprite sprite = GameResourceManager.GetSpriteByIndex(boxItem.GameResourceId);
-            Debug.Log($"Got {sprite.name} {boxItem.Value}");
+            GameResourceType type = GameResourceManager.GetTypeByIndex(boxItem.GameResourceId);
+            if (type == GameResourceType.Box)
+            {
+                // TODO
+            }
+            else if (type == GameResourceType.Player)
+            {
+                player.AdjustPlayerGameResource(boxItem);
+            }
         }
     }
 }

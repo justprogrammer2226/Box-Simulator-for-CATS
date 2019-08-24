@@ -7,6 +7,6 @@ class PlayerData : ScriptableObject
     [SerializeField] private List<GameResource> _gameResources;
     public List<GameResource> GameResources => _gameResources;
 
-    [SerializeField] private List<BoxItem> _boxItems;
-    public List<BoxItem> BoxItems => _boxItems;
+    [SerializeField] private List<GameResource> _boxItems;
+    public List<GameResource> BoxItems => _boxItems;
 }

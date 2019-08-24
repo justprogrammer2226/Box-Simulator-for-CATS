@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 2534465139639630868}
   - component: {fileID: 5791615551537040820}
   m_Layer: 5
-  m_Name: NewPlayerGameResource (3)
+  m_Name: GameResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,8 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c8e607feabab04f8e78e5603e4e9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameResource:
+  _gameResource:
     _id: 0
     _value: 0
-  image: {fileID: 1510951256790186727}
-  text: {fileID: 9131301709020339082}
+  _image: {fileID: 1510951256790186727}
+  _text: {fileID: 9131301709020339082}

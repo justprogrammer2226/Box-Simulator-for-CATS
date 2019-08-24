@@ -6,7 +6,7 @@ public class ItemsGroup
 {
     public string name;
     public float chance;
-    public BoxItem[] boxItems;
+    public GameResource[] boxItems;
 }
 
 [System.Serializable]

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [System.Serializable]
 public class GameResource
@@ -10,6 +11,12 @@ public class GameResource
     public int Value
     {
         get => _value;
-        set => _value = value;
+        set
+        {
+            _value = value;
+            OnValueChanged?.Invoke(_value);
+        }
     }
+
+    public event Action<int> OnValueChanged;
 }
