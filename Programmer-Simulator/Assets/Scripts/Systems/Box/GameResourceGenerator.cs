@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using UnityEngine;
 
-public static class BoxItemGenerator
+public static class GameResourceGenerator
 {
     /// <remark> For the script to work correctly, the box should have at least one items group and in each group at least one item.
     /// Otherwise, the method will return null. </remark>
-    public static GameResource GetRandomItemByBox(Box box)
+    public static GameResource GetRandomResourceByBox(Box box)
     {
         float totalChanceSum = box.itemsGroups.Select(group => group.chance).Sum();
 

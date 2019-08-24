@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class GameResource
 {
     [SerializeField] private int _id;
-    public int GameResourceId => _id;
+    public int Id => _id;
 
     [SerializeField] private int _value;
     public int Value

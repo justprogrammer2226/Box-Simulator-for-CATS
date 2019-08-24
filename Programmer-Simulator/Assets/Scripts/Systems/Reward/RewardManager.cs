@@ -11,7 +11,7 @@ class RewardManager : MonoBehaviour
 
     private void Awake()
     {
-       if(minNumberOfItems > maxNumberOfItems)
+        if(minNumberOfItems > maxNumberOfItems)
         {
             throw new System.Exception("The minimum number of elements cannot be greater than the maximum.");
         }
@@ -26,7 +26,7 @@ class RewardManager : MonoBehaviour
 
         for (int i = 0; i < numberOfItems; i++)
         {
-            boxItems.Add(BoxItemGenerator.GetRandomItemByBox(box));
+            boxItems.Add(GameResourceGenerator.GetRandomResourceByBox(box));
         }
 
         RewardPlayer(boxItems);
@@ -36,14 +36,17 @@ class RewardManager : MonoBehaviour
     {
         foreach (GameResource boxItem in boxItems)
         {
-            GameResourceType type = GameResourceManager.GetTypeByIndex(boxItem.GameResourceId);
+            GameResourceType type = GameResourceManager.GetTypeByIndex(boxItem.Id);
+
             if (type == GameResourceType.Box)
             {
-                // TODO
+                player.AdjustPlayerBoxItem(boxItem);
+                Debug.Log($"Got {boxItem.Value} box item with sprite name {GameResourceManager.GetSpriteByIndex(boxItem.Id)}");
             }
             else if (type == GameResourceType.Player)
             {
                 player.AdjustPlayerGameResource(boxItem);
+                Debug.Log($"Got {boxItem.Value} game resource with sprite name {GameResourceManager.GetSpriteByIndex(boxItem.Id)}");
             }
         }
     }
