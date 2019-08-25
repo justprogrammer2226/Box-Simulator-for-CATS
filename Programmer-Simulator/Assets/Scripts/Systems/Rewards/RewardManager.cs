@@ -5,6 +5,7 @@ class RewardManager : MonoBehaviour
 {
     public BoxManager boxManager;
     public Player player;
+    public RewardPipeline rewardPipeline;
 
     public int minNumberOfItems;
     public int maxNumberOfItems;
@@ -34,6 +35,10 @@ class RewardManager : MonoBehaviour
 
     public void RewardPlayer(List<GameResource> boxItems)
     {
+        rewardPipeline.Display(boxItems);
+
+        // ---
+
         foreach (GameResource boxItem in boxItems)
         {
             GameResourceType type = boxItem.GameResourceData.Type;
