@@ -10,13 +10,13 @@ public class GameResourceDataEditor : Editor
         GameResourceData gameResourceData = (GameResourceData)target;
 
         // Get all variables
-        SerializedProperty id = serializedObject.FindProperty("_id");
+        SerializedProperty title = serializedObject.FindProperty("_title");
         SerializedProperty type = serializedObject.FindProperty("_type");
         SerializedProperty targetValue = serializedObject.FindProperty("_targetValue");
         SerializedProperty sprite = serializedObject.FindProperty("_sprite");
 
-        // Display id
-        id.intValue = EditorGUILayout.IntField("Id", id.intValue);
+        // Display title
+        title.stringValue = EditorGUILayout.TextField("Title", title.stringValue);
 
         // Display enum
         type.enumValueIndex = (int)(GameResourceType)EditorGUILayout.EnumPopup("Type:", (GameResourceType)type.enumValueIndex);

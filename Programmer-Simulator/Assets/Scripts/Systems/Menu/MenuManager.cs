@@ -3,23 +3,36 @@
 class MenuManager : MonoBehaviour
 {
     [Header("Menus")]
-    public GameObject achievementsMenu;
-    public GameObject playerItemsMenu;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _inventoryMenu;
+    [SerializeField] private GameObject _achievementsMenu;
 
     [Header("Debug")]
     private GameObject _lastActiveMenu;
 
+    private void Start()
+    {
+        _lastActiveMenu = _mainMenu;
+    }
+
+    public void ActivateMainMenu()
+    {
+        if (_lastActiveMenu != null) _lastActiveMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+        _lastActiveMenu = _mainMenu;
+    }
+
     public void ActivateAchievementsMenu()
     {
         if (_lastActiveMenu != null) _lastActiveMenu.SetActive(false);
-        achievementsMenu.SetActive(true);
-        _lastActiveMenu = achievementsMenu;
+        _achievementsMenu.SetActive(true);
+        _lastActiveMenu = _achievementsMenu;
     }
 
-    public void ActivatePlayerItemsMenu()
+    public void ActivateInventoryMenu()
     {
         if (_lastActiveMenu != null) _lastActiveMenu.SetActive(false);
-        playerItemsMenu.SetActive(true);
-        _lastActiveMenu = playerItemsMenu;
+        _inventoryMenu.SetActive(true);
+        _lastActiveMenu = _inventoryMenu;
     }
 }

@@ -21,11 +21,6 @@ class Player : MonoBehaviour
     public GameObject playerBoxItemPrefab;
     public GameObject playerBoxItemPanel;
 
-    [Header("Player levels settings")]
-    public TextMeshProUGUI currentPlayerLevelText;
-
-    public Action<int> OnMoneyChange;
-
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -82,7 +77,6 @@ class Player : MonoBehaviour
     {
         DisplayPlayerGameResource();
         DisplayPlayerBoxItems();
-        UpdateUI();
     }
 
     private void DisplayPlayerGameResource()
@@ -101,11 +95,6 @@ class Player : MonoBehaviour
             GameResourceDisplay gameResourceDisplay = Instantiate(playerBoxItemPrefab, playerBoxItemPanel.transform).GetComponent<GameResourceDisplay>();
             gameResourceDisplay.GameResource = boxItem;
         }
-    }
-
-    private void UpdateUI()
-    {
-        currentPlayerLevelText.text = (playerLevelData.CurrentPlayerLevel + 1).ToString();
     }
 
     public void AdjustPlayerGameResource(GameResource gameResource)

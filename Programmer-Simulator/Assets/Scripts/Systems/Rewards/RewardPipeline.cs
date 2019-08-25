@@ -29,9 +29,9 @@ public class RewardPipeline : MonoBehaviour, IPointerDownHandler
         if(_rewardMiddlewares.Count != 0)
         {
             Destroy(_currentMiddleware);
-            GameResourceDisplay gameResourceDisplay = Instantiate(_rewardPrefab, _rewardPanel.transform).GetComponent<GameResourceDisplay>();
-            gameResourceDisplay.GameResource = _rewardMiddlewares.Dequeue();
-            _currentMiddleware = gameResourceDisplay.gameObject;
+            RewardDisplay rewardDisplay = Instantiate(_rewardPrefab, _rewardPanel.transform).GetComponent<RewardDisplay>();
+            rewardDisplay.GameResource = _rewardMiddlewares.Dequeue();
+            _currentMiddleware = rewardDisplay.gameObject;
         }
         else
         {

@@ -25,4 +25,10 @@ public class GameResource
         _gameResourceData = gameResource._gameResourceData;
         _value = gameResource._value;
     }
+
+    public GameResource(GameResourceData gameResourceData, int value)
+    {
+        _gameResourceData = gameResourceData;
+        _value = value;
+    }
 }

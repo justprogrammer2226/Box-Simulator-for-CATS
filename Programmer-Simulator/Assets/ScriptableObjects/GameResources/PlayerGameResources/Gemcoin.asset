@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff244590bc3fec44e9e5d7426773183a, type: 3}
   m_Name: Gemcoin
   m_EditorClassIdentifier: 
-  _id: 1
+  _title: GEMCOINS
   _sprite: {fileID: 21300002, guid: 8824203aa79f36642bebf10764c50f4b, type: 3}
   _type: 0
   _targetValue: 0

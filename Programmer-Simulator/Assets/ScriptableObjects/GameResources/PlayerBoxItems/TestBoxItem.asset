@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff244590bc3fec44e9e5d7426773183a, type: 3}
   m_Name: TestBoxItem
   m_EditorClassIdentifier: 
-  _id: 2
+  _title: HOT FOX
   _sprite: {fileID: 21300000, guid: bdba8bc00dbc29741a9859f8d1709f1f, type: 3}
   _type: 1
   _targetValue: 12

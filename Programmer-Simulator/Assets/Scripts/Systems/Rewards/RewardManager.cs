@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 class RewardManager : MonoBehaviour
@@ -35,10 +36,11 @@ class RewardManager : MonoBehaviour
 
     public void RewardPlayer(List<GameResource> boxItems)
     {
+        // Combine the same rewards.
+        boxItems = boxItems.GroupBy(_ => _.GameResourceData).Select(group => new GameResource(group.Key, group.Sum(_ => _.Value))).ToList();
+        // Display rewards.
         rewardPipeline.Display(boxItems);
-
-        // ---
-
+        // Add rewards.
         foreach (GameResource boxItem in boxItems)
         {
             GameResourceType type = boxItem.GameResourceData.Type;
