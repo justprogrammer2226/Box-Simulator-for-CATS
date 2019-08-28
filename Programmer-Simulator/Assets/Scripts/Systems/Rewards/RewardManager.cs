@@ -4,6 +4,8 @@ using UnityEngine;
 
 class RewardManager : MonoBehaviour
 {
+    public static RewardManager instance;
+
     public BoxManager boxManager;
     public Player player;
     public RewardPipeline rewardPipeline;
@@ -13,7 +15,16 @@ class RewardManager : MonoBehaviour
 
     private void Awake()
     {
-        if(minNumberOfItems > maxNumberOfItems)
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            throw new System.Exception("The instance of the reward manager already exists.");
+        }
+
+        if (minNumberOfItems > maxNumberOfItems)
         {
             throw new System.Exception("The minimum number of elements cannot be greater than the maximum.");
         }

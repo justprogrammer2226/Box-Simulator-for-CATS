@@ -9,20 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1fa61132f3ca949897245fb45e29f7, type: 3}
-  m_Name: DefaultPlayerData
+  m_Script: {fileID: 11500000, guid: 8fd51cf7e43886d48ae24bc4343d444a, type: 3}
+  m_Name: Dollar_10
   m_EditorClassIdentifier: 
-  _gameResources:
+  _title: Collect 10 dollar
+  _id: 0
+  _targetValue: 10
+  _currentValue: 0
+  _rewards:
   - _gameResourceData: {fileID: 11400000, guid: f407e55502842a84f913bd9ac4b7b8d1,
       type: 2}
-    _value: 3300
+    _value: 5
   - _gameResourceData: {fileID: 11400000, guid: 5a50e7f6ed957b646b61ca7d1dd3f4ba,
       type: 2}
-    _value: 40
-  _boxItems:
-  - _gameResourceData: {fileID: 11400000, guid: 3a18371e9aaacc940aba4be4be93ac5f,
-      type: 2}
-    _value: 12
-  - _gameResourceData: {fileID: 11400000, guid: e4fc4a90cddf10b4291c32efd4a48b9f,
-      type: 2}
-    _value: 3
+    _value: 1
+  _isClaimed: 0

@@ -31,7 +31,16 @@ class GameResourceDisplay : MonoBehaviour
 
         if (type == GameResourceType.Box)
         {
-            _text.text = $"{GameResource.Value}/{GameResource.GameResourceData.TargetValue}";
+            if(GameResource.Value == GameResource.GameResourceData.TargetValue)
+            {
+                _image.color = new Color(1, 1, 1);
+                _text.text = string.Empty;
+            }
+            else
+            {
+                _image.color = new Color(100f / 255, 100f /255, 100f / 255);
+                _text.text = $"{GameResource.Value}/{GameResource.GameResourceData.TargetValue}";
+            }
         }
         else if (type == GameResourceType.Player)
         {
