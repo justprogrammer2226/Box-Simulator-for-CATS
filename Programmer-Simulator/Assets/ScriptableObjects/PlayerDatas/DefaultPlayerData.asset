@@ -15,14 +15,11 @@ MonoBehaviour:
   _gameResources:
   - _gameResourceData: {fileID: 11400000, guid: f407e55502842a84f913bd9ac4b7b8d1,
       type: 2}
-    _value: 3300
+    _value: 5605
   - _gameResourceData: {fileID: 11400000, guid: 5a50e7f6ed957b646b61ca7d1dd3f4ba,
       type: 2}
-    _value: 40
+    _value: 111
   _boxItems:
   - _gameResourceData: {fileID: 11400000, guid: 3a18371e9aaacc940aba4be4be93ac5f,
       type: 2}
     _value: 12
-  - _gameResourceData: {fileID: 11400000, guid: e4fc4a90cddf10b4291c32efd4a48b9f,
-      type: 2}
-    _value: 3

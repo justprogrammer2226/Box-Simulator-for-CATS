@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-class Player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public static Player instance;
 
@@ -145,6 +145,46 @@ class Player : MonoBehaviour
         else
         {
             throw new Exception($"There was an attempt to add a box element, but the game resource is for the player.");
+        }
+    }
+
+    public bool IsPlayerGameResource(GameResource gameResource)
+    {
+        if (gameResource.GameResourceData.Type == GameResourceType.Player)
+        {
+            GameResource playerGameResource = playerData.GameResources.Where(_ => _.GameResourceData == gameResource.GameResourceData).SingleOrDefault();
+            if (playerGameResource != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public int GetValueOfPlayerGameResource(GameResource gameResource)
+    {
+        if (gameResource.GameResourceData.Type == GameResourceType.Player)
+        {
+            GameResource playerGameResource = playerData.GameResources.Where(_ => _.GameResourceData == gameResource.GameResourceData).SingleOrDefault();
+            if (playerGameResource != null)
+            {
+                return playerGameResource.Value;
+            }
+            else
+            {
+                throw new Exception("Player game resource not found.");
+            }
+        }
+        else
+        {
+            throw new Exception("Type of game resource is box item.");
         }
     }
 }

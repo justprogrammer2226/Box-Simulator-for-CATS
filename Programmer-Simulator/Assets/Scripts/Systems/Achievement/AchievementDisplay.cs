@@ -15,7 +15,7 @@ public class AchievementDisplay : MonoBehaviour
     public GameObject rewardPrefab;
     public GameObject rewardsPanel;
 
-    private void Start()
+    private void Awake()
     {
         rewardButton.onClick.AddListener(() => OnRewardButtonClick());
     }

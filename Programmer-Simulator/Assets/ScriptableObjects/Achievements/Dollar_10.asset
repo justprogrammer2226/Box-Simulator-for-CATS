@@ -15,7 +15,7 @@ MonoBehaviour:
   _title: Collect 10 dollar
   _id: 0
   _targetValue: 10
-  _currentValue: 0
+  _currentValue: 10
   _rewards:
   - _gameResourceData: {fileID: 11400000, guid: f407e55502842a84f913bd9ac4b7b8d1,
       type: 2}
@@ -23,4 +23,4 @@ MonoBehaviour:
   - _gameResourceData: {fileID: 11400000, guid: 5a50e7f6ed957b646b61ca7d1dd3f4ba,
       type: 2}
     _value: 1
-  _isClaimed: 0
+  _isClaimed: 1

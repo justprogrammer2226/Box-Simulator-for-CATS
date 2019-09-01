@@ -6,6 +6,7 @@ class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _inventoryMenu;
     [SerializeField] private GameObject _achievementsMenu;
+    [SerializeField] private GameObject _shopMenu;
 
     [Header("Debug")]
     private GameObject _lastActiveMenu;
@@ -34,5 +35,12 @@ class MenuManager : MonoBehaviour
         if (_lastActiveMenu != null) _lastActiveMenu.SetActive(false);
         _inventoryMenu.SetActive(true);
         _lastActiveMenu = _inventoryMenu;
+    }
+
+    public void ActivateShopMenu()
+    {
+        if (_lastActiveMenu != null) _lastActiveMenu.SetActive(false);
+        _shopMenu.SetActive(true);
+        _lastActiveMenu = _shopMenu;
     }
 }
